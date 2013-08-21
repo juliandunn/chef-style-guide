@@ -1,13 +1,18 @@
-SecondMarket Chef Style Guide
-=============================
+Julian's Chef Style Guide
+=========================
 
-This project contains the Chef Style Guide we use at SecondMarket. Some of these rules are enforced by FoodCritic; some others are not.
+This project contains the Chef Style Guide that I use, and was based on the work we did at [SecondMarket](http://www.secondmarket.com/). Some of these rules are enforced by FoodCritic; some others are not.
+
+Git Etiquette
+-------------
+
+Although not strictly a Chef style thing, please always ensure your ``user.name`` and ``user.email`` are set in your ``.gitconfig``.
 
 Cookbook Naming
 ---------------
 
-* Avoid punctuation ('_' or '-') in cookbook names. This is because any LWRPs you create will use the cookbook name as part of the LWRP name, so the method become very awkward. In particular, since '-' can't be part of a symbol in Ruby, you won't be able to use LWRPs in any cookbooks with '-' in them.
-* All SecondMarket application cookbooks should be prefixed with 'sm' (e.g. 'smpostgresql')
+* Avoid punctuation ('_' or '-') in cookbook names. This is because any LWRPs you create will use the cookbook name as part of the LWRP name, so the methods become very awkward. In particular, since '-' can't be part of a symbol in Ruby, you won't be able to use LWRPs in any cookbooks with '-' in them.
+* All organization application cookbooks should be prefixed with a short organizational prefix, such as 'sm' for 'SecondMarket' (e.g. 'smpostgresql')
 
 Cookbook Versioning
 -------------------
@@ -115,6 +120,7 @@ Right:
 Constructs to Avoid
 -------------------
 
+* `node.set` / `normal_attributes` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 * `node.set_unless` - Can lead to weird behavior if the node object had something set. Avoid unless altogether necessary (one example where it's necessary is in `node['postgresql']['server']['password']`)
 * `if node.run_list.include?("foo")` i.e. branching in recipes based on what's in the node's run list. Better and more readable to use a feature flag and set its precedence appropriately.
 * `node['foo']['bar']` i.e. setting normal attributes without specifying precedence. This is deprecated in Chef 11, so either use `node.set['foo']['bar']` to replace its precedence in-place or choose the precedence to suit.
