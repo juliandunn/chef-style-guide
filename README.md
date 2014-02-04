@@ -55,10 +55,10 @@ Follow this order for information in each resource declaration:
 
 Example:
 
-    template "/tmp/foobar.txt" do
-      source "foobar.txt.erb"
-      owner  "someuser"
-      group  "somegroup"
+    template '/tmp/foobar.txt' do
+      source 'foobar.txt.erb'
+      owner  'someuser'
+      group  'somegroup'
       mode   00644
       variables(
         :foo => 'bar'
@@ -87,11 +87,11 @@ In each resource declarations always specify the action to be taken:
 
 Wrong:
 
-    package "monit"
+    package 'monit'
 
 Right:
 
-    package "monit" do
+    package 'monit' do
       action :install
     end
 
@@ -117,12 +117,17 @@ Right:
 
     default['foo']['bar'] = 'baz'
 
+String Quoting
+--------------
+
+Use single-quoted strings in all situations where the string doesn't need interpolation.
+
 Constructs to Avoid
 -------------------
 
 * `node.set` / `normal_attributes` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 * `node.set_unless` - Can lead to weird behavior if the node object had something set. Avoid unless altogether necessary (one example where it's necessary is in `node['postgresql']['server']['password']`)
-* `if node.run_list.include?("foo")` i.e. branching in recipes based on what's in the node's run list. Better and more readable to use a feature flag and set its precedence appropriately.
+* `if node.run_list.include?('foo')` i.e. branching in recipes based on what's in the node's run list. Better and more readable to use a feature flag and set its precedence appropriately.
 * `node['foo']['bar']` i.e. setting normal attributes without specifying precedence. This is deprecated in Chef 11, so either use `node.set['foo']['bar']` to replace its precedence in-place or choose the precedence to suit.
 
 Useful Links
@@ -134,9 +139,10 @@ Useful Links
 License and Authors
 -------------------
 
-* Author:: Julian Dunn (<jdunn@secondmarket.com>)
+* Author:: Julian C. Dunn (<jdunn@aquezada.com>)
 
 * Copyright:: 2012-2013, SecondMarket Labs, LLC.
+* Copyright:: 2013-2014, Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
