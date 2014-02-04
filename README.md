@@ -11,7 +11,7 @@ Although not strictly a Chef style thing, please always ensure your ``user.name`
 Cookbook Naming
 ---------------
 
-* Avoid punctuation ('_' or '-') in cookbook names. This is because any LWRPs you create will use the cookbook name as part of the LWRP name, so the methods become very awkward. In particular, since '-' can't be part of a symbol in Ruby, you won't be able to use LWRPs in any cookbooks with '-' in them.
+* Avoid dashes in cookbook names. This is because any LWRPs you create will use the cookbook name as part of the LWRP name, so the methods become very awkward. In particular, since '-' can't be part of a symbol in Ruby, you won't be able to use LWRPs in any cookbooks with '-' in them.
 * All organization application cookbooks should be prefixed with a short organizational prefix, such as 'sm' for 'SecondMarket' (e.g. 'smpostgresql')
 
 Cookbook Versioning
