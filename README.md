@@ -3,9 +3,7 @@ Julian's Chef Style Guide
 
 This project contains the Chef Style Guide that I use, and was based on the work we did at [SecondMarket](http://www.secondmarket.com/). Some of these rules are enforced by FoodCritic; some others are not.
 
-I have a talk entitled "What Makes a Good Cookbook?" based on this material.
-
-<iframe width="853" height="480" src="//www.youtube.com/embed/ILOW0Dm_ILQ?rel=0&t=1m58s" frameborder="0" allowfullscreen></iframe>
+I have a talk entitled ["What Makes a Good Cookbook?"](https://www.youtube.com/watch?v=ILOW0Dm_ILQ&feature=youtu.be&t=1m58s) based on this material.
 
 Git Etiquette
 -------------
