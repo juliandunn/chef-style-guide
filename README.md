@@ -3,12 +3,16 @@ Julian's Chef Style Guide
 
 This project contains the Chef Style Guide that I use, and was based on the work we did at [SecondMarket](http://www.secondmarket.com/). Some of these rules are enforced by FoodCritic; some others are not.
 
+I have a talk entitled "What Makes a Good Cookbook?" based on this material.
+
+<iframe width="853" height="480" src="//www.youtube.com/embed/ILOW0Dm_ILQ?rel=0&t=1m58s" frameborder="0" allowfullscreen></iframe>
+
 Git Etiquette
 -------------
 
 Although not strictly a Chef style thing, please always ensure your ``user.name`` and ``user.email`` are set properly in your ``.gitconfig``.
 
-By "properly", I mean that ``user.name`` is your given name (e.g., "Julian Dunn") and ``user.email`` is an actual, working e-mail address for you. It's annoying to see commit log entries from things like "guestuser <login@Bobs-Macbook-Pro.local>".
+By "properly", I mean that ``user.name`` is your given name (e.g., "Julian Dunn") and ``user.email`` is an actual, working e-mail address for you. It's annoying to see commit log entries from things like "guestuser &lt;login@Bobs-Macbook-Pro.local&gt;".
 
 Cookbook Naming
 ---------------
