@@ -6,7 +6,9 @@ This project contains the Chef Style Guide that I use, and was based on the work
 Git Etiquette
 -------------
 
-Although not strictly a Chef style thing, please always ensure your ``user.name`` and ``user.email`` are set in your ``.gitconfig``.
+Although not strictly a Chef style thing, please always ensure your ``user.name`` and ``user.email`` are set properly in your ``.gitconfig``.
+
+By "properly", I mean that ``user.name`` is your given name (e.g., "Julian Dunn") and ``user.email`` is an actual, working e-mail address for you. It's annoying to see commit log entries from things like "guestuser <login@Bobs-Macbook-Pro.local>".
 
 Cookbook Naming
 ---------------
@@ -17,7 +19,7 @@ Cookbook Naming
 Cookbook Versioning
 -------------------
 
-* Use [semantic versioning](http://semver.org/) when numbering cookbooks. We also follow the same convention as Opscode, where the middle digit of a cookbook version is an odd number if unstable and even number if stable.
+* Use [semantic versioning](http://semver.org/) when numbering cookbooks.
 * Only upload stable cookbooks from master.
 * Only upload unstable cookbooks from the dev branch. Merge to master and bump the version when stable.
 * Always update CHANGELOG.md with any changes, with the JIRA ticket and a brief description.
@@ -107,7 +109,7 @@ should return nothing.
 Symbols or Strings?
 -------------------
 
-Even though the controversial FC001 Foodcritic rule has now been removed, we still prefer strings over symbols. Please retrofit old cookbooks as you come across them.
+Prefer strings over symbols, because they're easier to read and you don't need to explain to non-Rubyists what a symbol is. Please retrofit old cookbooks as you come across them.
 
 Wrong:
 
@@ -121,6 +123,15 @@ String Quoting
 --------------
 
 Use single-quoted strings in all situations where the string doesn't need interpolation.
+
+Shelling Out
+------------
+
+Always use `mixlib-shellout` to shell out. Never use backticks, Process.spawn, popen4,
+or anything else!
+
+As of Chef Client 12 you can use `shell_out`, `shell_out!` and `shell_out_with_system_locale`
+directly in recipe DSL.
 
 Constructs to Avoid
 -------------------
@@ -140,10 +151,10 @@ License and Authors
 -------------------
 
 * Author:: Julian C. Dunn (<jdunn@aquezada.com>)
-
 * Copyright:: 2012-2013, SecondMarket Labs, LLC.
 * Copyright:: 2013-2014, Chef Software, Inc.
 
+```text
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -155,3 +166,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+```
